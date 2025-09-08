@@ -34,15 +34,47 @@
       <h1>ThinkBin.io</h1>
       <p class="sub">Launching April 2026</p>
 
-      <form action="https://formspree.io/f/xgvlrprd" method="POST">
+      <form id="waitlist" action="https://formspree.io/f/xgvlrprd" method="POST">
         <input type="email" name="email" placeholder="Your email" required />
         <button type="submit">Join Waitlist</button>
+        <!-- Anti-spam honeypot -->
+        <input type="text" name="_gotcha" style="display:none">
       </form>
+
+      <!-- Where success/error messages will appear -->
+      <p id="form-msg" class="sub" style="margin-top:10px;"></p>
     </section>
   </main>
 
   <footer class="foot">
     © 2025 ThinkBin Inc. · <a href="mailto:hello@thinkbin.io">hello@thinkbin.io</a> · <a href="https://thinkbin.io">thinkbin.io</a>
   </footer>
+
+  <script>
+    const form = document.getElementById('waitlist');
+    const msg  = document.getElementById('form-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // don’t leave the page
+      msg.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          msg.textContent = "Thanks — you’re on the list! 🎉";
+        } else {
+          msg.textContent = "Hmm, something went wrong. Please email hello@thinkbin.io.";
+        }
+      } catch (err) {
+        msg.textContent = "Network error. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
