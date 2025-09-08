@@ -1,0 +1,14 @@
+# ai.txt — ThinkBin Inc.
+# Guidance for AI crawlers and LLM usage of our public content.
+
+Owner: ThinkBin Inc. (hello@thinkbin.io)
+Site: https://thinkbin.io
+Policy: public_summary_allowed
+
+# Allowed:
+# - Indexing and summarizing this page for end-users.
+# - Displaying snippet-length quotes with attribution.
+
+# Not allowed:
+# - Bulk dataset extraction or redistribution of full content.
+# - Training on proprietary assets or user-submitted emails.
