@@ -1,0 +1,6 @@
+# Robots.txt for ThinkBin.io
+
+User-agent: *
+Allow: /
+
+Sitemap: https://thinkbin.io/sitemap.xml
