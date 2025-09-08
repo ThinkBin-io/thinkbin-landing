@@ -8,50 +8,83 @@
   <link rel="canonical" href="https://thinkbin.io/about.html"/>
   <meta name="theme-color" content="#0b1020"/>
 
-  <!-- Social cards (optional) -->
-  <meta property="og:title" content="About ThinkBin"/>
-  <meta property="og:description" content="ThinkBin turns plain-language process mapping into an operating system for SMBs."/>
-  <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://thinkbin.io/about.html"/>
-  <meta property="og:image" content="https://thinkbin.io/LogoForLandingPage.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
   <style>
-    :root { --overlay: rgba(0,0,0,0.45); --text:#fff; --muted:#cfd3dc; }
-    * { box-sizing: border-box; }
-    html,body { margin:0; height:100%; font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; }
-    body { overflow:hidden; color:var(--text); }
-
-    .bg{position:fixed; inset:0; background:url('websiteBackground.png') center/cover no-repeat;}
-    .overlay{position:fixed; inset:0; background:var(--overlay);}
-    .wrap{position:relative; min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:24px;}
-    .card{
-      max-width:900px; width:100%;
-      background:rgba(10,14,23,0.45); backdrop-filter:blur(6px);
-      border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,.35);
-      padding:28px 28px 32px;
+    :root{
+      --overlay: rgba(0,0,0,.45);
+      --text:#fff;
+      --muted:#cfd3dc;
+      --card-bg: rgba(10,14,23,.45);
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
     }
-    .header{display:flex; gap:14px; align-items:center; justify-content:center; margin-bottom:10px;}
-    .logo{width:64px; height:auto}
-    h1{margin:.2rem 0 0; font-size:28px; letter-spacing:.2px}
-    .lede{color:var(--muted); margin:8px 0 18px; font-size:18px; text-align:center;}
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text)}
+    body{overflow:hidden}
 
-    .content{color:#e6e9f2; font-size:16px; line-height:1.6}
+    /* background + overlay */
+    .bg{position:fixed;inset:0;background:url('websiteBackground.png') center/cover no-repeat}
+    .overlay{position:fixed;inset:0;background:var(--overlay)}
+
+    /* page frame */
+    .wrap{
+      position:relative; min-height:100dvh;
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+    }
+
+    /* content card */
+    .card{
+      width:100%;
+      max-width:min(680px, 92vw);
+      background:var(--card-bg);
+      backdrop-filter:blur(6px);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding: clamp(20px, 3vw, 28px);
+    }
+
+    /* header row */
+    .head{
+      display:flex; align-items:center; gap:12px;
+      margin-bottom:6px;
+    }
+    .logo{width:44px;height:auto}
+    h1{
+      margin:0;
+      font-size: clamp(22px, 3.5vw, 30px);
+      letter-spacing:.2px;
+    }
+
+    /* copy */
+    .lede{
+      color:var(--muted);
+      margin: 8px 0 14px;
+      font-size: clamp(15px, 2.7vw, 18px);
+      line-height: 1.6;
+    }
+    .content{
+      font-size: clamp(14px, 2.6vw, 16px);
+      line-height: 1.7;
+      color:#e6e9f2;
+    }
     .content strong{color:#fff}
-    .content ul{margin:10px 0 0 20px}
-    .content a{color:#c1c8ff; text-decoration:none}
+    .content ul{margin: 8px 0 0 18px}
+    .content li{margin: 4px 0}
+    .content a{color:#c1c8ff;text-decoration:none}
     .content a:hover{text-decoration:underline}
 
-    .topnav{
-      display:flex; justify-content:center; gap:16px; margin:-6px 0 14px;
+    /* footer */
+    footer{
+      position:fixed;left:0;right:0;bottom:10px;
+      text-align:center;color:#9aa3b2;font-size:13px;
+      padding:0 8px;
     }
-    .btn{
-      display:inline-block; padding:8px 12px; border-radius:999px;
-      background:#4f46e5; color:#fff; text-decoration:none; font-weight:600;
-    }
-    .btn:hover{background:#4338ca}
 
-    footer{position:fixed; bottom:10px; left:0; right:0; text-align:center; color:#9aa3b2; font-size:13px;}
+    /* allow graceful scrolling if keyboard pops or content gets taller on tiny phones */
+    @media (max-width: 380px){
+      body{overflow:auto}
+      footer{position:static;margin:12px 0 10px}
+      .wrap{min-height:auto}
+    }
   </style>
 </head>
 <body>
@@ -59,22 +92,17 @@
   <div class="overlay"></div>
 
   <main class="wrap">
-    <section class="card" role="region" aria-label="About ThinkBin">
-      <div class="header">
-        <img class="logo" src="LogoForLandingPage.png" alt="ThinkBin logo"/>
+    <article class="card" role="region" aria-label="About ThinkBin">
+      <header class="head">
+        <img class="logo" src="LogoForLandingPage.png" alt="ThinkBin logo">
         <h1>About ThinkBin</h1>
-      </div>
+      </header>
 
       <p class="lede">
         ThinkBin helps small and medium businesses map, optimize, and document processes in plain language.
         SimulMap builds a process map <em>while</em> teaching best practices, then generates SOPs, KPI trackers,
         and knowledge pages.
       </p>
-
-      <nav class="topnav">
-        <a class="btn" href="/">Home</a>
-        <a class="btn" href="mailto:hello@thinkbin.io">Contact</a>
-      </nav>
 
       <div class="content">
         <ul>
@@ -83,11 +111,12 @@
           <li><strong>Start</strong> — Freemium onramp for new founders to turn ideas into an operating map.</li>
         </ul>
 
-        <p style="margin-top:14px">
+        <p style="margin-top:12px">
           <strong>Launch:</strong> April 2026. Questions? <a href="mailto:hello@thinkbin.io">hello@thinkbin.io</a>
+          · <a href="/">Back to homepage</a>
         </p>
       </div>
-    </section>
+    </article>
   </main>
 
   <footer>© 2025 ThinkBin Inc.</footer>
