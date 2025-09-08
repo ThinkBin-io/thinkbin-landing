@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ThinkBin.io — Launching April 2026</title>
+  <meta name="description" content="ThinkBin — Where knowledge becomes actionable." />
+  <style>
+    :root { --overlay: rgba(0,0,0,0.45); --text:#fff; --muted:#cfd3dc; }
+    html,body { height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+    .bg { position:fixed; inset:0; background:url('websiteBackground.png') center/cover no-repeat; }
+    .overlay { position:fixed; inset:0; background:var(--overlay); }
+    .center { position:relative; min-height:100%; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; }
+    .card { max-width:640px; width:100%; padding:28px 24px 32px; backdrop-filter: blur(6px); background:rgba(10,14,23,0.4); border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.35); }
+    .logo { width:96px; height:auto; margin:0 auto 14px; display:block; }
+    h1 { color:var(--text); margin:6px 0 4px; font-size:32px; letter-spacing:.2px; }
+    .sub { color:var(--muted); margin:0 0 18px; font-size:18px; }
+    form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:6px; }
+    input[type=email]{ width:280px; max-width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.9); font-size:16px; }
+    button{ padding:12px 18px; border:none; border-radius:10px; background:#4f46e5; color:#fff; font-weight:600; cursor:pointer; }
+    button:hover{ background:#4338ca; }
+    .foot { position:fixed; bottom:10px; left:0; right:0; text-align:center; color:#9aa3b2; font-size:13px; }
+    a { color:#c1c8ff; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="overlay"></div>
+
+  <main class="center">
+    <section class="card" role="region" aria-label="ThinkBin teaser">
+      <img class="logo" src="LogoForLandingPage.png" alt="ThinkBin logo" />
+      <h1>ThinkBin.io</h1>
+      <p class="sub">Launching April 2026</p>
+
+      <form action="https://formspree.io/f/xgvlrprd" method="POST">
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Join Waitlist</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    © 2025 ThinkBin Inc. · <a href="mailto:hello@thinkbin.io">hello@thinkbin.io</a> · <a href="https://thinkbin.io">thinkbin.io</a>
+  </footer>
+</body>
+</html>
